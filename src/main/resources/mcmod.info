@@ -1,0 +1,22 @@
+[
+   {
+      "modid":"TheviusTest",
+      "name":"Thevius Test",
+      "description":"A never released mod for learning purposes",
+      "version":"1.0",
+      "mcversion":"1.7.10",
+      "url":"",
+      "updateUrl":"",
+      "authorList":[
+         "TheviusRacconus"
+      ],
+      "credits":"",
+      "logoFile":"",
+      "screenshots":[
+
+      ],
+      "parent":"",
+      "dependencies": [
+      ]
+   }
+]

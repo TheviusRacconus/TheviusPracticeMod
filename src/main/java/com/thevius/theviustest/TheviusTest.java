@@ -1,5 +1,6 @@
 package com.thevius.theviustest;
 
+import com.thevius.theviustest.configuration.ConfigurationHandler;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -17,7 +18,7 @@ public class TheviusTest
     public static TheviusTest instance;
 
     //Proxies
-    @SidedProxy(clientSide = "com.thevius.theviustest.proxy.ClientProxy", serverSide = "com.thevius.theviustest.proxy.ServerProxy")
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
 
@@ -27,7 +28,7 @@ public class TheviusTest
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
     }
 

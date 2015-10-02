@@ -1,17 +1,27 @@
 package com.thevius.theviustest;
 
-import com.thevius.theviustest.configuration.ConfigurationHandler;
+import com.thevius.theviustest.client.handler.KeyInputEventHandler;
+import com.thevius.theviustest.handler.ConfigurationHandler;
+import com.thevius.theviustest.init.ModBlocks;
+import com.thevius.theviustest.init.ModItems;
+import com.thevius.theviustest.init.Recipes;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
+import com.thevius.theviustest.util.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.item.Item;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class TheviusTest
 {
+
+    public static Item thiefMask;
+
 
     //Mod instance
     @Mod.Instance(Reference.MOD_ID)
@@ -29,14 +39,24 @@ public class TheviusTest
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        proxy.registerKeyBindings();
+
+        ModItems.init();
+        ModBlocks.init();
+
+        LogHelper.info("Pre Initialization Complete");
 
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
 
-
+        Recipes.init();
+        LogHelper.info("Initialization Complete");
     }
 
 
@@ -44,6 +64,7 @@ public class TheviusTest
     public void postInit(FMLPostInitializationEvent event)
     {
 
+        LogHelper.info("Post Initialization Complete");
 
     }
 

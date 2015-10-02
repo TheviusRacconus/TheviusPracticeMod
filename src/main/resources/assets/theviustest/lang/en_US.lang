@@ -1,0 +1,13 @@
+# Items
+item.theviustest:thiefMask.name=Thief Mask
+
+# Blocks
+title.theviustest:colorfulBlock.name=Colorful Block
+
+# Creative Tabs
+itemGroup.theviustest=Thevius Test
+
+# Keys
+keys.theviustest.category= Thevius Test
+keys.theviustest.charge= Charge
+keys.theviustest.release= Release

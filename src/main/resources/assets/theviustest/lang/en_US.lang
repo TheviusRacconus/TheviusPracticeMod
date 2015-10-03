@@ -3,6 +3,7 @@ item.theviustest:thiefMask.name=Thief Mask
 
 # Blocks
 title.theviustest:colorfulBlock.name=Colorful Block
+title.theviustest:theviusOre.name=Thevius Ore
 
 # Creative Tabs
 itemGroup.theviustest=Thevius Test

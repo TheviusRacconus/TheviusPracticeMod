@@ -8,8 +8,9 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class WorldGeneratorTheviusOre implements IWorldGenerator {
-    private WorldGenMinable theviusOreGen = new WorldGenMinable(ModBlocks.theviusOre, 32);
+public class WorldGeneratorExploding implements IWorldGenerator
+{
+    private WorldGenMinable explodingBlockGen = new WorldGenMinable(ModBlocks.explodingBlock, 10);
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
@@ -37,10 +38,10 @@ public class WorldGeneratorTheviusOre implements IWorldGenerator {
         for(int i = 0; i < 5; i++)
         {
             int randX = x + random.nextInt(16);
-            int randY = random.nextInt(20 + random.nextInt(40));
+            int randY = random.nextInt(20 + random.nextInt(60));
             int randZ = z + random.nextInt(16);
 
-            theviusOreGen.generate(world, random, randX, randY, randZ);
+            explodingBlockGen.generate(world, random, randX, randY, randZ);
         }
     }
 
@@ -55,3 +56,5 @@ public class WorldGeneratorTheviusOre implements IWorldGenerator {
     }
 
 }
+
+

@@ -5,9 +5,11 @@ import com.thevius.theviustest.handler.ConfigurationHandler;
 import com.thevius.theviustest.init.ModBlocks;
 import com.thevius.theviustest.init.ModItems;
 import com.thevius.theviustest.init.Recipes;
+import com.thevius.theviustest.network.NetworkHandler;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
 import com.thevius.theviustest.util.LogHelper;
+import com.thevius.theviustest.world.gen.WorldGenHandler;
 import com.thevius.theviustest.world.gen.WorldGeneratorColorful;
 import com.thevius.theviustest.world.gen.WorldGeneratorTheviusOre;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -41,17 +43,22 @@ public class TheviusTest
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        //config
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
+        //KeyBindings
         proxy.registerKeyBindings();
 
+        //Blocks/Items
         ModItems.init();
         ModBlocks.init();
 
         //worldgen
-        GameRegistry.registerWorldGenerator(new WorldGeneratorColorful(), 0);
-        GameRegistry.registerWorldGenerator(new WorldGeneratorTheviusOre(), 0);
+        WorldGenHandler.init();
+
+        //networking
+        NetworkHandler.init();
 
         LogHelper.info("Pre Initialization Complete");
 

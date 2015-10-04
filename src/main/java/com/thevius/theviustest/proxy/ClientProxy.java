@@ -1,8 +1,7 @@
 package com.thevius.theviustest.proxy;
 
-import com.thevius.theviustest.client.gui.settings.Keybindings;
+import com.thevius.theviustest.client.settings.Keybindings;
 import cpw.mods.fml.client.registry.ClientRegistry;
-import net.minecraft.client.settings.KeyBinding;
 
 public class ClientProxy extends CommonProxy
 {
@@ -11,5 +10,7 @@ public class ClientProxy extends CommonProxy
     {
         ClientRegistry.registerKeyBinding(Keybindings.charge);
         ClientRegistry.registerKeyBinding(Keybindings.release);
+        ClientRegistry.registerKeyBinding(Keybindings.explode);
+        ClientRegistry.registerKeyBinding(Keybindings.explodeBig);
     }
 }

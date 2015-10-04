@@ -8,6 +8,7 @@ import com.thevius.theviustest.init.Recipes;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
 import com.thevius.theviustest.util.LogHelper;
+import com.thevius.theviustest.world.gen.WorldGeneratorColorful;
 import com.thevius.theviustest.world.gen.WorldGeneratorTheviusOre;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -49,6 +50,7 @@ public class TheviusTest
         ModBlocks.init();
 
         //worldgen
+        GameRegistry.registerWorldGenerator(new WorldGeneratorColorful(), 0);
         GameRegistry.registerWorldGenerator(new WorldGeneratorTheviusOre(), 0);
 
         LogHelper.info("Pre Initialization Complete");

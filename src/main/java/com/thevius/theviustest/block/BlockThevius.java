@@ -24,7 +24,7 @@ public class BlockThevius extends Block
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("title.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("title.%s%s", Reference.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
 

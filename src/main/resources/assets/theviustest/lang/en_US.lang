@@ -5,6 +5,7 @@ item.theviustest:thiefMask.name=Thief Mask
 title.theviustest:colorfulBlock.name=Colorful Block
 title.theviustest:theviusOre.name=Thevius Ore
 title.theviustest:explodingBlock.name=Exploding Block
+title.theviustest:camoMine.name=Camo Mine
 
 # Creative Tabs
 itemGroup.theviustest=Thevius Test

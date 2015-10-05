@@ -4,6 +4,7 @@ import com.thevius.theviustest.client.handler.KeyInputEventHandler;
 import com.thevius.theviustest.handler.ConfigurationHandler;
 import com.thevius.theviustest.init.ModBlocks;
 import com.thevius.theviustest.init.ModItems;
+import com.thevius.theviustest.init.ModTileEnties;
 import com.thevius.theviustest.init.Recipes;
 import com.thevius.theviustest.network.NetworkHandler;
 import com.thevius.theviustest.proxy.IProxy;
@@ -53,6 +54,7 @@ public class TheviusTest
         //Blocks/Items
         ModItems.init();
         ModBlocks.init();
+        ModTileEnties.init();
 
         //worldgen
         WorldGenHandler.init();

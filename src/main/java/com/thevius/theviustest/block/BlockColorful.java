@@ -1,9 +1,11 @@
 package com.thevius.theviustest.block;
 
+import com.thevius.theviustest.reference.Names;
 import com.thevius.theviustest.reference.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
+import javax.lang.model.element.Name;
 import java.util.Random;
 
 public class BlockColorful extends BlockThevius
@@ -11,7 +13,7 @@ public class BlockColorful extends BlockThevius
     public BlockColorful()
     {
         super();
-        this.setBlockName("colorfulBlock");
+        this.setBlockName(Names.Blocks.COLORFUL_BLOCK);
         this.setTickRandomly(true);
     }
 

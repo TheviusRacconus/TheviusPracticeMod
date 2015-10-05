@@ -1,5 +1,6 @@
 package com.thevius.theviustest.block;
 
+import com.thevius.theviustest.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -8,7 +9,7 @@ public class BlockExploding extends BlockThevius
     public BlockExploding()
     {
         super();
-        this.setBlockName("explodingBlock");
+        this.setBlockName(Names.Blocks.EXPLODING_BLOCK);
     }
 
     @Override

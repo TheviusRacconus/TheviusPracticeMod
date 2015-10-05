@@ -1,6 +1,7 @@
 package com.thevius.theviustest.client.handler;
 
 import com.thevius.theviustest.client.settings.Keybindings;
+import com.thevius.theviustest.handler.ConfigurationHandler;
 import com.thevius.theviustest.network.MessageExplode;
 import com.thevius.theviustest.network.NetworkHandler;
 import com.thevius.theviustest.reference.Key;
@@ -39,10 +40,10 @@ public class KeyInputEventHandler
             switch(key)
             {
                 case EXPLODE:
-                    NetworkHandler.sendToServer(new MessageExplode(3));
+                    NetworkHandler.sendToServer(new MessageExplode(ConfigurationHandler.explodeKeyRad));
                     break;
                 case EXPLODE_BIG:
-                    NetworkHandler.sendToServer(new MessageExplode(30));
+                    NetworkHandler.sendToServer(new MessageExplode(ConfigurationHandler.explodeBigKeyRad));
             }
         }
     }

@@ -3,11 +3,16 @@ item.theviustest:thiefMask.name=Thief Mask
 
 # Blocks
 title.theviustest:colorfulBlock.name=Colorful Block
+title.theviustest:theviusOre.name=Thevius Ore
+title.theviustest:explodingBlock.name=Exploding Block
+title.theviustest:camoMine.name=Camo Mine
 
 # Creative Tabs
 itemGroup.theviustest=Thevius Test
 
 # Keys
-keys.theviustest.category= Thevius Test
-keys.theviustest.charge= Charge
-keys.theviustest.release= Release
+keys.theviustest.category=Thevius Test
+keys.theviustest.charge=Charge
+keys.theviustest.release=Release
+keys.theviustest.explode=Explode
+keys.theviustest.explodeBig=Explode Big

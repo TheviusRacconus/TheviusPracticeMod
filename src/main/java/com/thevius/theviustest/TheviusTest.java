@@ -4,10 +4,14 @@ import com.thevius.theviustest.client.handler.KeyInputEventHandler;
 import com.thevius.theviustest.handler.ConfigurationHandler;
 import com.thevius.theviustest.init.ModBlocks;
 import com.thevius.theviustest.init.ModItems;
+import com.thevius.theviustest.init.ModTileEnties;
 import com.thevius.theviustest.init.Recipes;
+import com.thevius.theviustest.network.DescriptionHandler;
+import com.thevius.theviustest.network.NetworkHandler;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
 import com.thevius.theviustest.util.LogHelper;
+import com.thevius.theviustest.world.gen.WorldGenHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -38,13 +42,24 @@ public class TheviusTest
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        //config
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
+        //KeyBindings
         proxy.registerKeyBindings();
 
+        //Blocks/Items
         ModItems.init();
         ModBlocks.init();
+        ModTileEnties.init();
+
+        //worldgen
+        WorldGenHandler.init();
+
+        //networking
+        NetworkHandler.init();
+        DescriptionHandler.init();
 
         LogHelper.info("Pre Initialization Complete");
 

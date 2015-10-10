@@ -2,5 +2,5 @@ package com.thevius.theviustest.reference;
 
 public enum Key
 {
-    UNKNOWN, CHARGE, RELEASE;
+     CHARGE, RELEASE, EXPLODE, EXPLODE_BIG;
 }

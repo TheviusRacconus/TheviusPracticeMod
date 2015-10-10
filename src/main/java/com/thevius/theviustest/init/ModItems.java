@@ -2,6 +2,7 @@ package com.thevius.theviustest.init;
 
 import com.thevius.theviustest.item.ItemThevius;
 import com.thevius.theviustest.item.ItemThiefMask;
+import com.thevius.theviustest.reference.Names;
 import com.thevius.theviustest.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -12,6 +13,6 @@ public class ModItems
 
     public static void init()
     {
-        GameRegistry.registerItem(thiefMask, "thiefMask");
+        GameRegistry.registerItem(thiefMask, Names.Items.THIEF_MASK);
     }
 }

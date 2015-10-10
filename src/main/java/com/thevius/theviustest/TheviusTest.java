@@ -6,20 +6,18 @@ import com.thevius.theviustest.init.ModBlocks;
 import com.thevius.theviustest.init.ModItems;
 import com.thevius.theviustest.init.ModTileEnties;
 import com.thevius.theviustest.init.Recipes;
+import com.thevius.theviustest.network.DescriptionHandler;
 import com.thevius.theviustest.network.NetworkHandler;
 import com.thevius.theviustest.proxy.IProxy;
 import com.thevius.theviustest.reference.Reference;
 import com.thevius.theviustest.util.LogHelper;
 import com.thevius.theviustest.world.gen.WorldGenHandler;
-import com.thevius.theviustest.world.gen.WorldGeneratorColorful;
-import com.thevius.theviustest.world.gen.WorldGeneratorTheviusOre;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
@@ -61,6 +59,7 @@ public class TheviusTest
 
         //networking
         NetworkHandler.init();
+        DescriptionHandler.init();
 
         LogHelper.info("Pre Initialization Complete");
 

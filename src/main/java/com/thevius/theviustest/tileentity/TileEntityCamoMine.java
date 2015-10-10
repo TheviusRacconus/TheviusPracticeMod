@@ -1,18 +1,24 @@
 package com.thevius.theviustest.tileentity;
 
 import com.thevius.theviustest.handler.ConfigurationHandler;
+import com.thevius.theviustest.util.LogHelper;
+import cpw.mods.fml.common.network.ByteBufUtils;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.network.Packet;
 import net.minecraft.util.AxisAlignedBB;
 
 import java.util.List;
 
-public class TileEntityCamoMine extends TileEntity
+public class TileEntityCamoMine extends TileEntityThevius
 {
     private int timer = ConfigurationHandler.camoMineTimer;
+    private ItemStack camoStack;
 
+    @Override
     public void updateEntity()
     {
         if(timer > 0) timer--;
@@ -26,11 +32,43 @@ public class TileEntityCamoMine extends TileEntity
         }
     }
 
+    public void setCamouflage(ItemStack stack)
+    {
+        camoStack = stack;
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    public ItemStack getCamouflage()
+    {
+        return camoStack;
+    }
+
+    public void writeToPacket(ByteBuf buf)
+    {
+        ByteBufUtils.writeItemStack(buf, camoStack);
+        LogHelper.info("writing packet");
+    }
+
+    public void readFromPacket(ByteBuf buf)
+    {
+        ByteBufUtils.readItemStack(buf);
+        LogHelper.info("reading packet");
+    }
+
     @Override
     public void readFromNBT(NBTTagCompound tag)
     {
         super.readFromNBT(tag);
         timer = tag.getInteger("timer");
+
+        if(tag.hasKey("camoStack"))
+        {
+            camoStack = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("camoStack"));
+        }
+        else
+        {
+            camoStack = null;
+        }
     }
 
     @Override
@@ -38,5 +76,12 @@ public class TileEntityCamoMine extends TileEntity
     {
         super.writeToNBT(tag);
         tag.setInteger("timer", timer);
+
+        if(camoStack != null)
+        {
+            NBTTagCompound t = new NBTTagCompound();
+            camoStack.writeToNBT(t);
+            tag.setTag("camoStack", t);
+        }
     }
 }

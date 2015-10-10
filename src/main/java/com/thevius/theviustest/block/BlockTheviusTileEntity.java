@@ -8,6 +8,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 public abstract class BlockTheviusTileEntity extends BlockContainer
 {
@@ -41,5 +43,6 @@ public abstract class BlockTheviusTileEntity extends BlockContainer
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
+
 }
 

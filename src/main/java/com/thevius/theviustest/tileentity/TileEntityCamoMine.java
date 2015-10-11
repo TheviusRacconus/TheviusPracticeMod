@@ -46,13 +46,13 @@ public class TileEntityCamoMine extends TileEntityThevius
     public void writeToPacket(ByteBuf buf)
     {
         ByteBufUtils.writeItemStack(buf, camoStack);
-        LogHelper.info("writing packet");
+        //LogHelper.info("writing packet");
     }
 
     public void readFromPacket(ByteBuf buf)
     {
         ByteBufUtils.readItemStack(buf);
-        LogHelper.info("reading packet");
+        //LogHelper.info("reading packet");
     }
 
     @Override
